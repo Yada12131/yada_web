@@ -1,9 +1,9 @@
 interface TeamMember {
   id: number
-  nombre: string
-  cargo: string
-  phrase: string
-  foto?: string
+  nombre: string | null
+  cargo: string | null
+  phrase: string | null
+  foto?: string | null
 }
 
 interface TeamSectionProps {
@@ -57,22 +57,22 @@ export default function TeamSection({
                   {member.foto ? (
                     <img
                       src={member.foto}
-                      alt={member.nombre}
+                      alt={member.nombre || 'Miembro del equipo'}
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <span>{member.nombre.charAt(0)}</span>
+                    <span>{(member.nombre || 'M').charAt(0)}</span>
                   )}
                 </div>
 
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-1">
-                  {member.nombre}
+                  {member.nombre || 'Miembro del equipo'}
                 </h3>
                 <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 text-center mb-4">
-                  {member.cargo}
+                  {member.cargo || 'Posición'}
                 </p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm text-center italic border-l-2 border-blue-500/50 pl-3">
-                  "{member.phrase}"
+                  "{member.phrase || 'Bienvenido al equipo'}"
                 </p>
               </div>
             ))
