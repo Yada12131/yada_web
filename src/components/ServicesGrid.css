@@ -1,4 +1,4 @@
-@keyframes rotateCircle {
+@keyframes rotateBorder {
     from {
         transform: rotate(0deg);
     }
@@ -7,23 +7,30 @@
     }
 }
 
-.service-circle-animated {
-    background: conic-gradient( from 0deg, #3b82f6 0deg, #8b5cf6 90deg, #ec4899 180deg, #3b82f6 360deg);
-    animation: rotateCircle 8s linear infinite;
+.service-circle-border {
+    background: conic-gradient( from 0deg, #3b82f6 0deg, #3b82f6 90deg, #8b5cf6 180deg, #3b82f6 270deg, #3b82f6 360deg);
+    border-radius: 50%;
+    animation: rotateBorder 6s linear infinite;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
 
 /* Hover effect - Faster animation */
 
-.group:hover .service-circle-animated {
-    animation: rotateCircle 4s linear infinite;
+.group:hover .service-circle-border {
+    animation: rotateBorder 3s linear infinite;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
 }
 
 
 /* Dark mode adjustment */
 
 @media (prefers-color-scheme: dark) {
-    .service-circle-animated {
-        background: conic-gradient( from 0deg, #60a5fa 0deg, #a78bfa 90deg, #f472b6 180deg, #60a5fa 360deg);
+    .service-circle-border {
+        background: conic-gradient( from 0deg, #60a5fa 0deg, #60a5fa 90deg, #a78bfa 180deg, #60a5fa 270deg, #60a5fa 360deg);
+        box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+    }
+    .group:hover .service-circle-border {
+        box-shadow: 0 0 30px rgba(96, 165, 250, 0.7);
     }
 }
