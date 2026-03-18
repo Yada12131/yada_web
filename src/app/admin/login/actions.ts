@@ -39,7 +39,8 @@ export async function login(formData: FormData) {
   const token = await createToken()
 
   // Set cookie
-  cookies().set({
+  const cookieStore = await cookies()
+  cookieStore.set({
     name: 'admin-token',
     value: token,
     httpOnly: true,
@@ -52,5 +53,6 @@ export async function login(formData: FormData) {
 }
 
 export async function logout() {
-  cookies().delete('admin-token')
+  const cookieStore = await cookies()
+  cookieStore.delete('admin-token')
 }
