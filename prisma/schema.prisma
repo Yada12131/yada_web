@@ -1,0 +1,149 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Home {
+  id              Int      @id @default(autoincrement())
+  seccion_h1      String?
+  seccion_h_1     String?
+  title_1         String?
+  title__1        String?
+  conte_1         String?
+  seccion_conte1  String?
+  seccion__conte1 String?
+  url_logos       String?
+  seccion_conte2  String?
+  conte__2        String?
+  conte_2         String?
+  text_apps       String?
+  url_iconos      String?
+  seccion_conte7  String?
+  texto_cotiza    String?
+  texto__cotiza   String?
+  button_cotiza   String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Slider {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  descripcion String?
+  imagen      String?
+  link        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id                Int      @id @default(autoincrement())
+  encabezado        String?
+  descripcion       String?
+  url_boton         String?
+  nombre_servicio_1 String?
+  dservicio_1       String?
+  nombre_servicio_2 String?
+  dservicio_2       String?
+  nombre_servicio_3 String?
+  Dservicio_3       String?
+  nombre_servicio_4 String?
+  dservicio_4       String?
+  nombre_servicio_5 String?
+  dservicio_5       String?
+  nombre_servicio_6 String?
+  dservicio_6       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model TextFounder {
+  id            Int      @id @default(autoincrement())
+  Titulo1       String?
+  Titulo2       String?
+  ampliacion    String?
+  ampliacion2   String?
+  nombre_botton String?
+  url_botton    String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Founder {
+  id        Int      @id @default(autoincrement())
+  foto      String?
+  nombre    String?
+  cargo     String?
+  phrase    String?
+  x         String?
+  facebook  String?
+  linkedin  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Pricing {
+  id           Int      @id @default(autoincrement())
+  gategoria1   String?
+  descripcion  String?
+  plan1        String?
+  descripcion1 String?
+  valor1       String?
+  plan2        String?
+  descripcion2 String?
+  valor2       String?
+  plan3        String?
+  descripcion3 String?
+  valor3       String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Setting {
+  id         Int      @id @default(autoincrement())
+  nombre_sitio String?
+  logo       String?
+  favicon    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String?
+  phone     String?
+  service   String?
+  message   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model About {
+  id            Int      @id @default(autoincrement())
+  titulo        String?
+  titulo2       String?
+  descripcion1  String?
+  descripcion2  String?
+  mision        String?
+  vision        String?
+  imagen        String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
