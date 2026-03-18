@@ -14,7 +14,9 @@ import {
   Briefcase,
   Menu,
   X,
-  LogOut
+  LogOut,
+  MessageCircle,
+  Zap
 } from 'lucide-react'
 import { logout } from './login/actions'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -23,7 +25,10 @@ import { useRouter } from 'next/navigation'
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { name: 'Inicio (Home)', href: '/admin/home', icon: ImageIcon },
+  { name: 'Intro', href: '/admin/intro', icon: Building },
   { name: 'Servicios', href: '/admin/servicios', icon: Briefcase },
+  { name: 'Testimonios', href: '/admin/testimonios', icon: MessageCircle },
+  { name: 'CTA', href: '/admin/cta', icon: Zap },
   { name: 'Nosotros', href: '/admin/nosotros', icon: Building },
   { name: 'Fundadores', href: '/admin/fundadores', icon: Users },
   { name: 'Precios', href: '/admin/precios', icon: CreditCard },

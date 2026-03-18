@@ -99,6 +99,37 @@ model Founder {
   updatedAt DateTime @updatedAt
 }
 
+model Intro {
+  id               Int      @id @default(autoincrement())
+  titulo           String?
+  subtitulo        String?
+  descripcion      String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Testimony {
+  id          Int      @id @default(autoincrement())
+  nombre      String?
+  cargo       String?
+  empresa     String?
+  texto       String?
+  foto        String?
+  rating      Int?     @default(5)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CTA {
+  id           Int      @id @default(autoincrement())
+  titulo       String?
+  descripcion  String?
+  boton_texto  String?
+  boton_link   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
 model Pricing {
   id           Int      @id @default(autoincrement())
   gategoria1   String?
