@@ -2,12 +2,12 @@ import { Star } from 'lucide-react'
 
 interface Testimonial {
   id: number
-  nombre: string
-  cargo: string
-  empresa: string
-  texto: string
-  foto?: string
-  rating: number
+  nombre: string | null
+  cargo: string | null
+  empresa: string | null
+  texto: string | null
+  foto?: string | null
+  rating: number | null
 }
 
 interface TestimonialsProps {
@@ -50,7 +50,7 @@ export default function TestimonialsSection({ testimonios }: TestimonialsProps) 
                 <div className="relative z-10">
                   {/* Rating stars */}
                   <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    {Array.from({ length: testimonial.rating || 5 }).map((_, i) => (
                       <Star
                         key={i}
                         className="w-5 h-5 fill-yellow-300 text-yellow-300"
@@ -60,7 +60,7 @@ export default function TestimonialsSection({ testimonios }: TestimonialsProps) 
 
                   {/* Testimonial text */}
                   <p className="text-lg mb-6 leading-relaxed text-white/95">
-                    "{testimonial.texto}"
+                    "{testimonial.texto || 'Testimonio sin contenido'}"
                   </p>
 
                   {/* Author info */}
@@ -69,16 +69,16 @@ export default function TestimonialsSection({ testimonios }: TestimonialsProps) 
                       {testimonial.foto ? (
                         <img
                           src={testimonial.foto}
-                          alt={testimonial.nombre}
+                          alt={testimonial.nombre || 'Cliente'}
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <span>{testimonial.nombre.charAt(0)}</span>
+                        <span>{(testimonial.nombre || 'C').charAt(0)}</span>
                       )}
                     </div>
                     <div>
-                      <h4 className="font-bold text-white">{testimonial.nombre}</h4>
-                      <p className="text-sm text-white/80">{testimonial.cargo}</p>
+                      <h4 className="font-bold text-white">{testimonial.nombre || 'Cliente'}</h4>
+                      <p className="text-sm text-white/80">{testimonial.cargo || 'Posición'}</p>
                       {testimonial.empresa && (
                         <p className="text-xs text-white/70 mt-1">{testimonial.empresa}</p>
                       )}
@@ -92,7 +92,7 @@ export default function TestimonialsSection({ testimonios }: TestimonialsProps) 
                     <div
                       key={i}
                       className={`w-2 h-2 rounded-full ${
-                        i < Math.ceil(testimonial.rating / 5) * 5
+                        i < Math.ceil((testimonial.rating || 5) / 5) * 5
                           ? 'bg-white'
                           : 'bg-white/30'
                       }`}
