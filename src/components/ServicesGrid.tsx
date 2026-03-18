@@ -1,3 +1,5 @@
+import './ServicesGrid.css'
+
 interface ServiceItem {
   nombre: string
   descripcion: string
@@ -15,7 +17,7 @@ export default function ServicesGrid({
   servicios,
 }: ServicesGridProps) {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-950">
+    <section className="py-20 bg-gradient-to-b from-white to-blue-50/30 dark:from-neutral-950 dark:to-blue-950/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4">
@@ -28,19 +30,24 @@ export default function ServicesGrid({
         <div className="grid md:grid-cols-3 gap-12 md:gap-8">
           {servicios.map((servicio, idx) => (
             <div key={idx} className="flex flex-col items-center text-center group">
-              {/* Circular background with partial border */}
-              <div className="relative w-32 h-32 mb-6 flex items-center justify-center">
-                {/* Animated border circle */}
-                <div className="absolute inset-0 rounded-full border-8 border-transparent border-t-blue-500 border-r-purple-500 opacity-60 group-hover:opacity-100 transition-opacity" />
-                {/* Gradient circle */}
-                <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-200 to-gray-100 dark:from-neutral-700 dark:to-neutral-800" />
-                {/* Inner circle with icon */}
-                <div className="relative w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white text-3xl font-bold">
-                  {idx + 1}
+              {/* Animated Circle Container */}
+              <div className="relative w-40 h-40 mb-8 flex items-center justify-center">
+                {/* Outer rotating border circle */}
+                <div className="service-circle-animated absolute inset-0 rounded-full" />
+                
+                {/* Static gradient circle background */}
+                <div className="absolute inset-4 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 border-2 border-blue-200 dark:border-blue-800/50" />
+                
+                {/* Inner content circle */}
+                <div className="relative w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex flex-col items-center justify-center text-white shadow-lg group-hover:shadow-2xl transition-shadow">
+                  <div className="text-4xl font-black mb-2">{idx + 1}</div>
+                  <div className="text-xs font-bold text-center px-2 leading-tight">
+                    {servicio.nombre}
+                  </div>
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                 {servicio.nombre}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">

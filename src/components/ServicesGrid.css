@@ -1,0 +1,29 @@
+@keyframes rotateCircle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.service-circle-animated {
+    background: conic-gradient( from 0deg, #3b82f6 0deg, #8b5cf6 90deg, #ec4899 180deg, #3b82f6 360deg);
+    animation: rotateCircle 8s linear infinite;
+}
+
+
+/* Hover effect - Faster animation */
+
+.group:hover .service-circle-animated {
+    animation: rotateCircle 4s linear infinite;
+}
+
+
+/* Dark mode adjustment */
+
+@media (prefers-color-scheme: dark) {
+    .service-circle-animated {
+        background: conic-gradient( from 0deg, #60a5fa 0deg, #a78bfa 90deg, #f472b6 180deg, #60a5fa 360deg);
+    }
+}
