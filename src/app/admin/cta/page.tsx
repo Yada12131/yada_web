@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
 
 export default async function AdminCTA() {
-  const ctaData = await prisma.cta.findFirst()
+  const ctaData = await prisma.cTA.findFirst()
 
   async function updateCTA(formData: FormData) {
     'use server'
@@ -16,9 +16,9 @@ export default async function AdminCTA() {
     }
 
     if (id) {
-      await prisma.cta.update({ where: { id }, data })
+      await prisma.cTA.update({ where: { id }, data })
     } else {
-      await prisma.cta.create({ data })
+      await prisma.cTA.create({ data })
     }
 
     revalidatePath('/')
