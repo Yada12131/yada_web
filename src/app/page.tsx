@@ -18,7 +18,7 @@ export default async function Home() {
       prisma.service.findFirst(),
       prisma.founder.findMany({ orderBy: { createdAt: 'desc' } }),
       prisma.testimony.findMany({ orderBy: { createdAt: 'desc' } }),
-      prisma.cta.findFirst(),
+      prisma.cTA.findFirst(),
     ])
 
   // Prepare hero data
